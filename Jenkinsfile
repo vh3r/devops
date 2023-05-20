@@ -1,4 +1,4 @@
-ipeline {
+pipeline {
   agent any
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
@@ -9,7 +9,7 @@ ipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t  vh3r/jenkins-docker-hub:nginx-devops-v$BUILD_NUMBER '
+        sh 'docker build -t vh3r/jenkins-docker-hub:nginx-devops-v$BUILD_NUMBER .'
       }
     }
     stage('Login') {
